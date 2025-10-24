@@ -6,16 +6,16 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background)
+  --color-foreground: var(--foreground)
+  --font-sans: var(--font-geist-sans)
+  --font-mono: var(--font-geist-mono)
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a
+    --foreground: #ededed
   }
 }
 
@@ -24,3 +24,120 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .bg-emerald-1 {
+    background-color: #047857; /* Tailwind bg-emerald-700 */
+  }
+    .bg-emerald-2 {
+    background-color: #059669; /* Tailwind bg-emerald-600 */
+  }
+    .bg-emerald-3 {
+    background-color: #10b981; /* Tailwind bg-emerald-500 */
+  }
+    .bg-emerald-4 {
+    background-color: #34d399; /* Tailwind bg-emerald-400 */
+  }
+    .bg-emerald-5 {
+    background-color: #6ee7b7; /* Tailwind bg-emerald-300 */
+  }
+      .bg-emerald-6 {
+    background-color: #a7f3d0; /* Tailwind bg-emerald-200 */
+  }
+      .bg-emerald-7 {
+    background-color: #d1fae5; /* Tailwind bg-emerald-100 */
+  }
+      .bg-emerald-8 {
+    background-color: #ecfdf5; /* Tailwind bg-emerald-50 */
+  }
+    .text-stone-1 {
+    color: #44403c; /* Tailwind text-stone-700 */
+  }
+    .text-stone-2 {
+    color: #57534e; /* Tailwind text-stone-600 */
+  }
+    .text-stone-3 {
+    color: #78716c; /* Tailwind text-stone-500 */
+  }
+    .text-stone-4 {
+    color: #a8a29e; /* Tailwind text-stone-400 */
+  }
+    .text-stone-5 {
+    color: #d6d3d1; /* Tailwind text-stone-300 */
+  }
+    .text-stone-6 {
+    color: #e7e5e4; /* Tailwind text-stone-200 */
+  }
+    .text-stone-7 {
+    color: #f5f5f4; /* Tailwind text-stone-100 */
+  }
+    .text-stone-8 {
+    color: #fafaf9; /* Tailwind text-stone-50 */
+  } 
+    .text-emerald-1 {
+    color: #047857; /* Tailwind text-emerald-700 */
+  }
+    .text-emerald-2 {
+    color: #059669; /* Tailwind text-emerald-600 */
+  }
+    .text-emerald-3 {
+    color: #10b981; /* Tailwind text-emerald-500 */
+  }
+    .text-emerald-4 {
+    color: #34d399; /* Tailwind text-emerald-400 */
+  }
+    .text-emerald-5 {
+    color: #6ee7b7; /* Tailwind text-emerald-300 */
+  }
+    .text-emerald-6 {
+    color: #a7f3d0; /* Tailwind text-emerald-200 */
+  }
+    .text-emerald-7 {
+    color: #d1fae5; /* Tailwind text-emerald-100 */
+  }
+    .text-emerald-8 {
+    color: #ecfdf5; /* Tailwind text-emerald-50 */
+  }
+    .bg-stone-1 {
+    background-color: #44403c; /* Tailwind bg-stone-700 */
+  }
+    .bg-stone-2 {
+    background-color: #57534e; /* Tailwind bg-stone-600 */
+  }
+    .bg-stone-3 {
+    background-color: #78716c; /* Tailwind bg-stone-500 */
+  }
+    .bg-stone-4 {
+    background-color: #a8a29e; /* Tailwind bg-stone-400 */
+  }
+    .bg-stone-5 {
+    background-color: #d6d3d1; /* Tailwind bg-stone-300 */
+  }
+    .bg-stone-6 {
+    background-color: #e7e5e4; /* Tailwind bg-stone-200 */
+  }
+    .bg-stone-7 {
+    background-color: #f5f5f4; /* Tailwind bg-stone-100 */
+  }
+    .bg-stone-8 {
+    background-color: #fafaf9; /* Tailwind bg-stone-50 */
+  }
+}
+
+
+@keyframes carrusel-mou {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-carrusel-suau {
+  animation: carrusel-mou 30s linear infinite;
+  display: flex;
+  will-change: transform;
+}
+
+
