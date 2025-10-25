@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { getBotigaAction } from '@/actions/botigues/get-botiga-action'
+import {cache} from 'react'
+import { getBotigaCached } from '@/components/website/getbotigaChached'
 import Info from '@/components/website/Info'
 import { XarxesSocialsBar } from '@/components/website/XarxesSocialsBar'
 import CarruselBar from '@/components/website/CarruselBar'
@@ -28,7 +29,7 @@ export default async function WebPage ({
   const resolvedParams = await params
   const botigaid = resolvedParams.botigaid
 
-  const { errors, botiga } = await getBotigaAction({ id: botigaid })
+  const { errors, botiga } = await getBotigaCached(botigaid)
 
    if (errors.length > 0 || !botiga) {
     return <div className="text-center text-red-500">Botiga no trobada</div>
