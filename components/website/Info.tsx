@@ -3,7 +3,6 @@
 
 import { useState } from 'react';
 import InfoModal from './InfoModal'
-import TextDisplay from './TextDisplay'
 import { FaInfo } from 'react-icons/fa'
 import type { Botiga } from '@/utils/schemas/index'
 
@@ -30,7 +29,7 @@ export default function Info({ info }: { info: Botiga['info'] }) {
       <InfoModal isOpen={isModalOpen} onClose={handleCloseModal}>
         <div className="prose">
           {info && (
-            <p className={`whitespace-pre-wrap leading-relaxed text-justify`}
+            <p className={`whitespace-pre-wrap leading-relaxed text-justify text-stone-2`}
               style={{ wordWrap: 'break-word', overflowWrap: 'break-word'}} >
                 {info}
             </p>)}

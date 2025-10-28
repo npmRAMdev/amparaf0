@@ -2,11 +2,10 @@
 import { useRouter } from 'next/navigation'
 import { IoClose } from 'react-icons/io5'
 
-export default function GoBackButton ({p} : {p?: string}) {
+export default function GoBackButton () {
     const router = useRouter()
   return (
     <>
-    <p className='italic text-stone-2'>{p}</p>
       <button 
         onClick={() => router.back()}
         className=" flex justify-center items-center text-stone-8 gap-3 mt-3 ml-3"

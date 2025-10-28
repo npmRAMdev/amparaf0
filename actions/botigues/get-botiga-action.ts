@@ -15,11 +15,11 @@ export const getBotigaAction = async ({id}: {id: Botiga ['id']}) => {
 
     const { data, error } = await supabase
       .from('botigues')
-      .select('id, name, address, phone, logo, info, website, whatsapp, facebook, instagram, tiktok, business, youtube, city, donacions(*), imatges(*)')
+      .select('id, name, address, phone, logo, info, website, whatsapp, facebook, instagram, tiktok, business, youtube, city, donacions(*), imatges(*), grups(id)')
       .eq('id', id)
       .single()
 
-  console.log('getBotigaAction data:', data)
+  //console.log('getBotigaAction data:', data)
 
   if (error) {
     return {

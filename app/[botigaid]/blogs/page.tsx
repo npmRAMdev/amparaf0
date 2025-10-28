@@ -17,7 +17,7 @@ export default async function BlogPage ({
     let p = ''
     if (!botigaid) {
       p = 'BotigaId no proporcionat'
-      return <div className="text-center text-red-500"><GoBackButton p={p}/></div>
+      return <div className="text-center text-red-500"><GoBackButton />{p}</div>
     }
   const { errors, blogs } = await getBlogsAction(botigaid)
   //console.log ('avisos', avisos.botigaName[0])

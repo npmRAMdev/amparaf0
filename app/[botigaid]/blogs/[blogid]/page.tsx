@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ blogid: s
   let p = ''
   if (!botigaid || !blogid) {
     p ='Blog no trobat'
-    return <div className="text-center text-red-500"><GoBackButton p={p}/></div>
+    return <div className="text-center text-red-500"><GoBackButton />{p}</div>
   }
 
   //const { botigaid: botigaId, blogid } = await params

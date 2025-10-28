@@ -15,7 +15,7 @@ export const SeguintContactCard: React.FC<EntityProps> = ({contactImage, contact
 
   return (
         <Link href={`/${id}/web`} className="w-full">
-          <div className="w-full max-w-lg hover:shadow-none relative flex flex-col mx-auto shadow-lg m-3 rounded">
+          <div className="w-full max-w-lg hover:shadow-lg relative flex flex-col mx-auto shadow-md m-3 rounded">
             <div style={{
                 zIndex: -1,
                 height: '80px',

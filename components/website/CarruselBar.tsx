@@ -22,7 +22,7 @@ export default function CarruselBar({ imatges }: { imatges: Imatge[] }) {
             <Image
               src={imatge.url}
               alt={`Imatge ${imatge.name}`}
-              className="object-cover w-full h-full rounded-lg"
+              className="object-cover w-full h-full"
               width={400}
               height={256}
               priority={index < 3}

@@ -45,7 +45,7 @@ export default async function GrupIdPage({params}: { params: Promise<{ botigaid:
 
   return (
     <div className="pt-1 px-2 mb-36 w-full">
-      <h1 className="text-lg font-semibold text-center text-stone-2">Publicacions i Avisos</h1>
+      <h1 className="text-lg font-semibold text-center text-stone-2 mt-5">Publicacions i Avisos</h1>
       <p className="text-sm text-stone-500 mb-4 text-center text-stone-2">consulta les últimes publicacions i avisos del grup:</p>
       {itemsUnificats.map(item => {
         if (item.tipus === 'publicacio') {
@@ -66,7 +66,7 @@ export default async function GrupIdPage({params}: { params: Promise<{ botigaid:
           )
         }
       })}
-      <div className="absolute top-4 right-4 z-1 bg-stone-700/60 rounded-full ">
+      <div className="absolute top-4 right-4 bg-opacity-60 z-10 bg-stone-2 rounded-full">
         <Link href={`/${botigaid}/grups`} className="text-stone-8">
           <IoClose size={24} />
         </Link>

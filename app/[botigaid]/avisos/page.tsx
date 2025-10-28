@@ -1,7 +1,6 @@
 
 import Link from "next/link"
 import { getAvisosAction } from "@/actions/avisos/get-avisos-action"
-import { netejaString } from "@/utils/helpers/netejaString"
 import { formatDate } from "@/utils/helpers/formatDate"
 import GoBackButton from "@/components/GoBackButton"
 import { IoClose } from 'react-icons/io5'
@@ -25,23 +24,24 @@ export default async function AvisosPage ({
   let p = ''
   if (!botigaid) {
     p = 'No hi ha botigaId'
-    return <div className="text-center text-red-500"><GoBackButton p={p}/></div>
+    return <div className="text-center text-red-500"><GoBackButton />{p}</div>
   }
 
   const { errors, avisos } = await getAvisosAction(botigaid)
-  //console.log ('avisos', avisos.botigaName[0])
-  //console.log('avisos', avisos);
-  if (errors.length > 0) {
-    return <div className="text-center text-red-500">Avisos no trobats</div>
+  console.log ('-- errors Avisos--', errors)
+  console.log('--avisos--', avisos)
+  if (errors.length > 0 || !avisos || avisos.length === 0) {
+    return <div className="text-center flex items-center justify-center text-stone-2">No hi ha encara cap avís<GoBackButton /></div>
   }
-  let botigaName: Avis['botigaName']
+
+ /*  let botigaName: Avis['botigaName']
   if (avisos && avisos.length > 0) {
     botigaName = netejaString(avisos[0].botigaName)
-  }
+  } */
 
   return (
     <section className="relative bg-stone-7 mb-10 p-2">
-    <p className='text-xl text-center text-stone-2 font-bold sticky top-0 bg-stone-7 py-4 z-10'>avisos</p>
+    <p className='text-xl text-center text-stone-2 font-bold bg-stone-7 py-4  mt-5'>avisos</p>
     <div className="w-full max-w-5xl mx-auto px-2 md:px-6">
         <div className="flex flex-col justify-center divide-y divide-stone-200 h-screen overflow-hidden ">
         {/* Contingut amb scroll */}
