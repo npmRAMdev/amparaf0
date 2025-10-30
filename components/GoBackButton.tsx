@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { IoClose } from 'react-icons/io5'
+import { FaArrowCircleLeft } from "react-icons/fa"
 
 export default function GoBackButton () {
     const router = useRouter()
@@ -8,10 +8,11 @@ export default function GoBackButton () {
     <>
       <button 
         onClick={() => router.back()}
-        className=" flex justify-center items-center text-stone-8 gap-3 mt-3 ml-3"
+        className=" absolute top-4 left-4 bg-opacity-60 z-10 text-stone-2 rounded-full active:scale-90 active:text-stone-300 transition-transform duration-150 ease-in-out"
       >
-        <IoClose size={24} className='bg-stone-700/60 rounded-full hover:bg-stone-700/90' />
+        <FaArrowCircleLeft size={24} className='bg-stone-8 rounded-full hover:bg-stone-6 transition-colors' />
       </button>
     </>
   )
 }
+

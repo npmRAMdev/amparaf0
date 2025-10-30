@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getBotigaPublicacionsAction } from '@/actions/publicacions/get-botiga-publicacions-action'
 import PublicacioCard from '@/components/opcions/actualitat/PublicacioCard'
 import GoBackButton from '@/components/GoBackButton'
-import { IoClose } from 'react-icons/io5'
+import XTancar from '@/components/XTancar'
 import type { Metadata } from "next"
 import type { Publicacio } from '@/utils/schemas'
 
@@ -37,11 +37,7 @@ export default async function PublicacionsPage  ({
       {publicacions.length > 0 && publicacions.map((item: Publicacio) => (
         <PublicacioCard key={item.id} item={item} />
        ))}
-       <div className="absolute top-4 right-4 bg-opacity-60 z-10 bg-stone-2 rounded-full">
-        <Link href={`/${botigaid}/web`} className="text-stone-8">
-          <IoClose size={24} />
-        </Link>
-      </div>
+      <XTancar />
     </section>
   )
 }

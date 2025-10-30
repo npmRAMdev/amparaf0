@@ -5,7 +5,7 @@ import { createClient } from '@/utils/supabase/server'
 
 export const getBotigaPublicacionsAction = async (botigaId: string) => {
   
-  //console.log('getPostsAction ----------------- botigaId:', botigaId)
+  //console.log('getPubsAction ----------------- botigaId:', botigaId)
   const supabase = await createClient()
 
   const { data, error } = await supabase

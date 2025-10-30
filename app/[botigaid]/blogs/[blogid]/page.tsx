@@ -1,8 +1,7 @@
-import Link from "next/link"
 import { getBlogAction } from "@/actions/blogs/get-blog-action"
 import { formatData } from "@/utils/helpers/formatDate"
 import GoBackButton from "@/components/GoBackButton"
-import { IoClose } from 'react-icons/io5'
+import XTancar from '@/components/XTancar'
 import type { Metadata } from "next"
 
 export async function generateMetadata({ params }: { params: Promise<{ blogid: string }> }): Promise<Metadata> {
@@ -59,13 +58,9 @@ export async function generateMetadata({ params }: { params: Promise<{ blogid: s
             <img src={blog.image} alt='mare de Déu' className="w-30 h-full object-cover rounded" />
           </div>
           <h2 className="text-lg font-bold text-stone-800 flex justify-center">{blog.title}</h2>
-          <p className="text-stone-700 text-justify text-sm">{blog.description}</p>
+          <p className="text-stone-700 text-sm whitespace-pre-wrap leading-relaxed text-justify" style={{ wordWrap: 'break-word', overflowWrap: 'break-word'}}>{blog.description}</p>
         </div>
-        <div className="absolute top-4 right-4 z-1 bg-stone-700/60 rounded-full ">
-          <Link href={`/${botigaid}/blogs`} className="text-stone-50 ">
-              <IoClose size={24} />
-          </Link>
-        </div>
-      </article>
-    );
-  };
+      <XTancar />
+    </article>
+    )
+  }

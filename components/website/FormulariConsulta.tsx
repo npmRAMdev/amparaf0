@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 import { getFormularisAction } from '@/actions/formularis/get-formularis-action'
 import { sendEmailBrevoAction } from '@/actions/emails/send-email-brevo-action'
-import type { Formulari } from '@/utils/schemas'
 import { SiGoogleforms } from "react-icons/si"
 import { IoClose } from 'react-icons/io5'
+import type { Formulari } from '@/utils/schemas'
 
 function Modal({ isOpen, onClose, children }: { isOpen: boolean; onClose: () => void; children: React.ReactNode }) {
   if (!isOpen) return null
@@ -155,7 +155,7 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
   // Mostrar missatge si no hi ha formularis
   if (!formularis || formularis.length === 0) {
     return (
-      <div className="col-span-12 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center">
+      <div className="col-span-12 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center hover:bg-stone-5 cursor-not-allowed">
         <p className="text-stone-500">No hi ha destinataris a qui dirigir-se</p>
       </div>
     )
@@ -166,7 +166,7 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
     <>
       <div 
         onClick={obrirModal}
-        className="col-span-12 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2 cursor-pointer"
+        className="hover:bg-stone-5 w-full p-3 sm:p-6 bg-stone-6 shadow-md rounded-xl flex flex-col items-center gap-2 cursor-pointer"
       >
         <SiGoogleforms className="text-stone-500 text-4xl"/>
         <p className="text-2xl text-stone-500 font-bold">formulari de consulta</p>
@@ -184,17 +184,17 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="destinatari" className="block mb-1">destinatari</label>
+              <label htmlFor="destinatari" className="block mb-1 text-xs sm:text-base font-semibold">destinatari</label>
               <select 
                 id="destinatari"
                 name="destinatari" 
                 value={formData.destinatari}
                 onChange={handleInputChange}
-                className="mb-4 w-full p-2 border border-gray-300 rounded-md cursor-pointer"
+                className="mb-4 w-full p-2 border border-stone-300 rounded-md cursor-pointer focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors text-xs sm:text-base"
                 disabled={isSubmitting}
                 required
               >
-                <option className='italic' value="">selecciona destinatari</option>
+                <option className='italic text-xs sm:text-base' value="">- selecciona destinatari -</option>
                 {formularis.map(formulari => (
                   <option key={formulari.id} value={formulari.id}>
                     {formulari.nom} - {formulari.grup}
@@ -204,7 +204,7 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
             </div>
             
             <div>
-              <label htmlFor="nom" className="block mb-1">nom</label>
+              <label htmlFor="nom" className="block mb-1 text-xs sm:text-base font-semibold">nom</label>
               <input 
                 type="text" 
                 id="nom" 
@@ -212,13 +212,13 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
                 value={formData.nom}
                 onChange={handleInputChange}
                 required 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors text-xs sm:text-base"
                 disabled={isSubmitting}
               />
             </div>
             
             <div>
-              <label htmlFor="email" className="block mb-1">correu electrònic</label>
+              <label htmlFor="email" className="block mb-1 text-xs sm:text-base font-semibold">correu electrònic</label>
               <input 
                 type="email" 
                 id="email" 
@@ -226,13 +226,13 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
                 value={formData.email}
                 onChange={handleInputChange}
                 required 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors text-xs sm:text-base"
                 disabled={isSubmitting}
               />
             </div>
             
             <div>
-              <label htmlFor="concepte" className="block mb-1">concepte</label>
+              <label htmlFor="concepte" className="block mb-1 text-xs sm:text-base font-semibold">concepte</label>
               <input 
                 type="text" 
                 id="concepte" 
@@ -240,13 +240,13 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
                 value={formData.concepte}
                 onChange={handleInputChange}
                 required 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors text-xs sm:text-base"
                 disabled={isSubmitting}
               />
             </div>
             
             <div>
-              <label htmlFor="missatge" className="block mb-1">missatge</label>
+              <label htmlFor="missatge" className="block mb-1 text-xs sm:text-base font-semibold">missatge</label>
               <textarea 
                 id="missatge" 
                 name="missatge" 
@@ -254,24 +254,15 @@ export default function FormulariConsulta({ emailRecipient, botigaid }: { emailR
                 onChange={handleInputChange}
                 rows={4} 
                 required 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors resize-none text-xs sm:text-base"
                 disabled={isSubmitting}
               ></textarea>
             </div>
             
             <div className="flex gap-2">
               <button 
-                type="button" 
-                onClick={tancarModal}
-                className="flex-1 bg-stone-4 text-stone-8 py-2 px-4 rounded-md hover:bg-stone-5"
-                disabled={isSubmitting}
-              >
-                cancel·lar
-              </button>
-              
-              <button 
                 type="submit" 
-                className="flex-1 bg-emerald-500 text-stone-8 py-2 px-4 rounded-md hover:bg-emerald-600 disabled:bg-emerald-300"
+                className="flex-1 bg-emerald-500 text-stone-8 py-2 px-4 rounded-md hover:bg-emerald-600 disabled:bg-emerald-300 focus:border-stone-400 focus:ring-2 focus:ring-stone-200 focus:outline-none transition-colors"
                 disabled={isSubmitting || !isFormValid()}
               >
                 {isSubmitting ? 'enviant...' : 'enviar'}

@@ -1,9 +1,8 @@
 
-import Link from "next/link"
 import { getAvisosAction } from "@/actions/avisos/get-avisos-action"
 import { formatDate } from "@/utils/helpers/formatDate"
 import GoBackButton from "@/components/GoBackButton"
-import { IoClose } from 'react-icons/io5'
+import XTancar from '@/components/XTancar'
 import type {Avis} from "@/utils/schemas"
 import type { Metadata } from "next"
 
@@ -73,11 +72,7 @@ export default async function AvisosPage ({
         </div>
         </div>
     </div>
-    <div className="absolute top-4 right-4 bg-opacity-60 z-10 bg-stone-2 rounded-full">
-        <Link href={`/${botigaid}/web`} className="text-stone-8">
-        <IoClose size={24} />
-        </Link>
-    </div>
+    <XTancar />
     </section>
   )
 }

@@ -28,14 +28,14 @@ export default function SocialButtons() {
   }
 
   return (
-    <div className='flex gap-2 mt-3 text-stone-4 space-x-2 text-2xl px-1 relative'>
+    <div className='flex gap-2 mt-3 text-stone-4 space-x-2 text-xl sm:text-2xl px-1 relative p-3'>
       <Link 
         href='' 
         onClick={(e) => handleIconClick("m'agrada", e)}
         className='hover:text-emerald-2 flex items-center gap-1 transition-colors'
       >
         <FaRegHandPeace />
-        <span className='hidden min-[450px]:flex text-sm font-medium'>853</span>
+        <span className='min-[450px]:flex text-sm font-medium'>853</span>
       </Link>
       <Link 
         href='' 
@@ -43,7 +43,7 @@ export default function SocialButtons() {
         className='hover:text-emerald-2 flex items-center gap-1 transition-colors'
       >
         <FaRegHandPointUp />
-        <span className='hidden min-[400px]:flex text-sm font-medium'>153</span>
+        <span className='min-[400px]:flex text-sm font-medium'>153</span>
       </Link>
       <Link 
         href='' 
@@ -51,7 +51,7 @@ export default function SocialButtons() {
         className='hover:text-emerald-2 flex items-center gap-1 transition-colors'
       >
         <FaRegHandSpock />
-        <span className='hidden min-[450px]:flex text-sm font-medium'>3.253</span>
+        <span className='min-[450px]:flex text-sm font-medium'>3.253</span>
       </Link>
       <Link 
         href=''

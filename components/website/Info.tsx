@@ -17,10 +17,10 @@ export default function Info({ info }: { info: Botiga['info'] }) {
   return (
     <>
       <div 
-        className="col-span-4 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2 cursor-pointer"
+        className="col-span-4 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2 cursor-pointer hover:bg-stone-5"
         onClick={handleOpenModal}
       >
-        <FaInfo className='text-emerald-4 text-6xl' />
+        <FaInfo className='text-emerald-4 text-5xl' />
         <p className='text-2xl text-emerald-4 font-bold tracking-wide cursor-pointer hidden sm:block'>
           info
         </p>
@@ -29,7 +29,7 @@ export default function Info({ info }: { info: Botiga['info'] }) {
       <InfoModal isOpen={isModalOpen} onClose={handleCloseModal}>
         <div className="prose">
           {info && (
-            <p className={`whitespace-pre-wrap leading-relaxed text-justify text-stone-2`}
+            <p className='whitespace-pre-wrap leading-relaxed text-justify text-stone-2'
               style={{ wordWrap: 'break-word', overflowWrap: 'break-word'}} >
                 {info}
             </p>)}

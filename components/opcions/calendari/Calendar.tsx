@@ -15,7 +15,7 @@ import {
 import CalendarEventsList from '@/components/opcions/calendari/CalendarEventsList'
 import { getAllMonthPublicacionsAction } from '@/actions/publicacions/get-all-month-publicacions-action'
 
-// Tipus defensius per a posts
+// Tipus defensius per a pubs
 interface CalendarPublicacio {
   id?: string | number
   title?: string

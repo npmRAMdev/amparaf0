@@ -6,12 +6,12 @@ import CarruselBar from '@/components/website/CarruselBar'
 import DonarDialog from '@/components/website/DonarDialog'
 import { HeadElement } from '@/components/website/HeadElement'
 import FormulariConsulta from '@/components/website/FormulariConsulta'
+import XTancar from '@/components/XTancar'
 import { BiSolidMessageAltDetail, BiSolidMessageAltDots } from "react-icons/bi"
 import { PiPhoneFill, PiPlanetFill } from "react-icons/pi"
 import { HiSpeakerphone } from "react-icons/hi"
 import { PiCrossFill } from "react-icons/pi"
 import { MdGroups2 } from "react-icons/md"
-import { IoClose } from 'react-icons/io5'
 import { MdTimer } from "react-icons/md"
 import type { Metadata } from "next"
 
@@ -47,7 +47,7 @@ export default async function WebPage ({
   const { errorsD, donacio } = donacioResult
   const { errorsImatge = [], imatges } = imatgesResult */
 
-  console.log('---Webpage grups:---', botiga)
+  //console.log('---Webpage grups:---', botiga)
 
   const donacio = botiga.donacions && botiga.donacions.length > 0 ? botiga.donacions[0] : null
 
@@ -68,7 +68,7 @@ export default async function WebPage ({
                   <Link href={`tel:+${botiga.phone}`} className="col-span-4 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2">
                     <PiPhoneFill className='text-emerald-4 text-6xl'/><p className='text-2xl text-emerald-4 font-bold tracking-wide cursor-pointer hidden sm:block'>crida'ns</p>
                   </Link>
-                  <Link  href={`https://${botiga.website}`} className="col-span-4 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2">
+                  <Link href={`${botiga.website}`} target="_blank" rel="noopener noreferrer" className="col-span-4 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2">
                     <PiPlanetFill  className='text-emerald-4 text-6xl' /><p className='text-2xl text-emerald-4 font-bold tracking-wide cursor-pointer hidden sm:block'>visita'ns</p>
                   </Link>
                   <Info info={botiga.info} />
@@ -80,7 +80,7 @@ export default async function WebPage ({
                     <Link href={`/${botigaid}/horaris`} className="col-span-12 sm:col-span-6 lg:col-span-4 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2"><MdTimer className="text-stone-500 text-4xl"/><p className="text-2xl text-stone-500 font-bold flex items-center gap-2">horaris</p></Link>
                 </div>)}
                   {botiga.donacions && botiga.donacions.length > 0 && <DonarDialog donacio={donacio}/>}
-                  {botiga.grups.length > 1 && <Link href={`/${botigaid}/grups`} className="flex flex-col p-2 items-center bg-stone-6 shadow-md rounded-xl "><MdGroups2 className='text-stone-3 text-5xl'/><p className="text-2xl text-stone-3 font-bold">grups</p>
+                  {botiga.grups.length > 1 && <Link href={`/${botigaid}/grups`} className="flex flex-col p-2 items-center bg-stone-6 shadow-md rounded-xl hover:bg-stone-5"><MdGroups2 className='text-stone-3 text-5xl'/><p className="text-2xl text-stone-3 font-bold">grups</p>
                   </Link>}
                 <div className='space-y-3 mb-4'>
                   { botiga.business !== 'parroquia' && (
@@ -89,7 +89,7 @@ export default async function WebPage ({
                       <Link href={`/${botigaid}/avisos`} className="col-span-12 md:col-span-6 hover:bg-stone-5 w-full p-4 bg-stone-6 shadow-md rounded-xl flex justify-center items-center gap-2"><BiSolidMessageAltDots className="text-stone-500 text-4xl"/><p className="text-2xl text-stone-500 font-bold flex items-center gap-2">avisos</p></Link>
                     </div>)}
                   {botiga.imatges && <CarruselBar imatges={botiga.imatges} /> }
-                  <div className="">
+                  <div className="flex justify-center w-full">
                     <FormulariConsulta emailRecipient='rasputinmoore@gmail.com' botigaid={botiga.id} />
                   </div>
                   <XarxesSocialsBar whatsapp={botiga.whatsapp} youtube={botiga.youtube} instagram={botiga.instagram} facebook={botiga.facebook} tiktok={botiga.tiktok} />
@@ -98,11 +98,7 @@ export default async function WebPage ({
             </div>
           </div>
         </div>
-      <div className="absolute top-4 right-4 bg-opacity-60 z-10 bg-stone-2 rounded-full">
-        <Link href='/favorits' className="text-stone-8">
-          <IoClose size={24} />
-        </Link>
-      </div>
+      <XTancar />
       </div>
   );
 }

@@ -20,12 +20,15 @@ export default async function ActualitatPage() {
     ...publicacio,
     createdAt: new Date(publicacio.createdAt),
     eventDate: publicacio.eventDate ? new Date(publicacio.eventDate) : null
-  }));
+  }))
 
   const avisos: Avis[] = (avisosResult.avisos ?? []).map(avis => ({
     ...avis,
     createdAt: new Date(avis.createdAt)
-  }));
+  }))
+
+  //console.log('Publicacions fetched:', publicacions.length);
+  //console.log('Avisos fetched:', avisos.length);
 
   const itemsUnificats: UnifiedItem[] = [
     ...publicacions.map(publicacio => ({ 
@@ -42,11 +45,11 @@ export default async function ActualitatPage() {
     <div className="pt-1 px-2 mb-36 w-full">
       {itemsUnificats.map(item => {
         if (item.tipus === 'publicacio') {
-          // Type assertion to PostItem for type safety
-          const postItem = item as Publicacio
+          // Type assertion to PubItem for type safety
+          const pubItem = item as Publicacio
           return (
             <div key={`post-${item.id}`} className="mb-3">
-              <PublicacioCard item={postItem} />
+              <PublicacioCard item={pubItem} />
             </div>
           );
         } else {

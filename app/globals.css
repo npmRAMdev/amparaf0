@@ -1,21 +1,24 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #f5f5f4; /* bg-stone-100 */
-  --foreground: #171717;
+  /* --foreground: #171717; */
+  --foreground: #57534d /* text-stone-600 */;
 }
 
-@theme inline {
-  --color-background: var(--background)
-  --color-foreground: var(--foreground)
-  --font-sans: var(--font-geist-sans)
-  --font-mono: var(--font-geist-mono)
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #f5f5f4;
-    --foreground: #ededed
+    --foreground: #57534d /* text-stone-600 */;
   }
 }
 
@@ -135,9 +138,26 @@ body {
 }
 
 .animate-carrusel-suau {
-  animation: carrusel-mou 10s linear infinite;
+  animation: carrusel-mou 20s linear infinite;
   display: flex;
   will-change: transform;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
 
 

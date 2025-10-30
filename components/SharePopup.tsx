@@ -32,8 +32,8 @@ export default function SharePopup({ anchorEl, onClose }: SharePopupProps) {
     
     const rect = anchorEl.getBoundingClientRect()
     return {
-      top: rect.top + window.scrollY - 10,
-      left: rect.left + window.scrollX - 100
+      top: rect.top + window.scrollY - 70,
+      left: rect.left + window.scrollX - 170
     }
   }
 
@@ -95,7 +95,6 @@ export default function SharePopup({ anchorEl, onClose }: SharePopupProps) {
           ))}
         </div>
       </div>
-      <div className="absolute -bottom-1 left-4 w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
     </div>
   )
 }

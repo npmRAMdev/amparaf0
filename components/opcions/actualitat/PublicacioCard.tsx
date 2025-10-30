@@ -3,62 +3,52 @@ import Image from "next/image"
 import { formatDistanceToNow } from "date-fns"
 import { formatDate } from "@/utils/helpers/formatDate"
 import { ca } from "date-fns/locale"
-import SocialButtons from "@/components/SocialButtons"
+import { recurtaParagraf } from "@/utils/helpers/recurtaParagraf"
 import type { Publicacio } from "@/utils/schemas"
 
 
 
 export default function PublicacioCard({ item }: { item: Publicacio }) {
     
-    const {createdAt, title, description, image, botigaName, eventLocation, eventDate, grupName, moreInfo} = item
+    const {createdAt, title, description, image, botigaName, eventLocation, eventDate, grupName, botigaId, grupId, id} = item
     const timeAgo = formatDistanceToNow(new Date(createdAt), {addSuffix: true, includeSeconds: true, locale: ca})
     //console.log('publicacio', publicacio)
     //console.log('entity', entity) 7/20
     //console.log('grups', eventDate)
   return (
-
     <div className="w-full flex justify-center">
       <div className="w-full max-w-5xl">
-        <p className="text-xs text-stone-4 text-right">{timeAgo}</p>
+        <p className="text-2xs sm:text-sm text-stone-4 text-right">{timeAgo}</p>
         
         <div className="flex bg-stone-8 rounded-xl shadow-md w-full overflow-hidden">
-          {/* Secció de la imatge */}
-          <div className="w-2/5 min-w-[40%] relative">
+          <Link href={`/${botigaId}/grups/${grupId}/${id}`} className="w-1/4 min-w-[20%] relative cursor-pointer">
             <Image 
               src={image ?? "/default-image-rectang.webp"} 
               alt={`image of ${title}`} 
-              width={400}
-              height={400}
+              width={200}
+              height={200}
               className="object-cover w-full h-full"
               style={{ aspectRatio: '1/1' }}
             />
-          </div>
-          
-          {/* Secció de contingut */}
+          </Link>
           <div className="flex-1 p-2 md:p-6 flex flex-col">
-            {/* Capçalera */}
             <div>
-              <h6 className="text-sm font-semibold text-stone-3 uppercase">
+              <h6 className="text-2xs sm:text-base font-semibold text-stone-3 uppercase">
                 {botigaName}
-                <span className="text-stone-4 capitalize"> - {grupName}</span>
+                <span className="text-stone-4 capitalize italic"> {grupName}</span>
               </h6>
-              <h4 className="text-lg font-semibold text-emerald-3 mt-1 mb-3">
+              <h4 className="text-base sm:text-lg font-semibold text-emerald-3 mt-1 mb-3">
                 {title}
               </h4>
-              <p className="text-sm text-stone-3 text-justify mb-4">
-                {description}
-                <Link href={`${moreInfo}`} className="ml-1 text-stone-700 font-bold italic hover:underline">
-                  Saber més &gt;&gt;
-                </Link>
+              <p className="text-xs sm:text-sm text-stone-3 text-justify mb-4">
+                {recurtaParagraf(description, 50, 12)}
               </p>
             </div>
-            
-            {/* Peu de pàgina */}
-            <div className="mt-auto space-y-2">
+            <div className="mt-auto">
               {eventDate && (
-                <p className="text-sm text-stone-500">
-                  Data i hora: {' '}
-                  <span className="font-semibold">
+                <div className=" text-stone-500">
+                  <span className="hidden sm:inline sm:text-sm text-stone-500">Data i hora: {' '}</span>
+                  <span className="text-xs sm:text-sm font-semibold">
                     {(() => {
                       const ed = typeof eventDate === "string" ? new Date(eventDate) : new Date(eventDate);
                       return isNaN(ed.getTime())
@@ -66,17 +56,15 @@ export default function PublicacioCard({ item }: { item: Publicacio }) {
                         : formatDate(ed.toISOString());
                     })()}
                   </span>
-                </p>
+                </div>
               )}
               
               {eventLocation && (
-                <p className="text-sm text-stone-500">
-                  Lloc: {' '}
-                  <span className="font-semibold">{eventLocation}</span>
-                </p>
+                <div className="text-stone-500">
+                  <span className="hidden sm:inline sm:text-sm text-stone-500">Lloc: {' '}</span>
+                  <span className="text-xs sm:text-sm font-semibold">{eventLocation}</span>
+                </div>
               )}
-              
-              <SocialButtons />
             </div>
           </div>
         </div>

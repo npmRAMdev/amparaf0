@@ -11,13 +11,13 @@ export function XarxesSocialsBar ({whatsapp, youtube, instagram, facebook, tikto
   return (
     <div className="p-4 bg-stone-6 shadow rounded-xl w-full flex flex-col gap-3 items-center justify-center">
           <div className="flex justify-center space-x-5 max-w-xl lg:max-w-5xl">
-              { whatsapp && <Link href={`${whatsapp}`}><p className="text-lg md:text-3xl text-stone-3 flex items-center"><FaWhatsapp /></p> </Link>}
-              { youtube && <Link href={`${youtube}`}><p className="text-lg md:text-3xl text-stone-3 flex items-center"><AiOutlineYoutube /></p></Link>}
-              { instagram && <Link href={`${instagram}`} ><p className="text-lg md:text-3xl text-stone-3 flex items-center"><FaInstagram /></p></Link>}
-              { facebook && <Link href={`${facebook}`}><p className="text-lg md:text-3xl text-stone-3 flex items-center"><AiOutlineFacebook /></p></Link>}
-              { tiktok && <Link href={`${tiktok}`}><p className="text-lg md:text-3xl text-stone-3 flex items-center"><TbBrandTiktok /></p></Link>}
+              { whatsapp && <Link href={`${whatsapp}`} target="_blank" rel="noopener noreferrer"><p className="text-xl md:text-3xl text-stone-3 flex items-center"><FaWhatsapp /></p> </Link>}
+              { youtube && <Link href={`${youtube}`} target="_blank" rel="noopener noreferrer"><p className="text-xl md:text-3xl text-stone-3 flex items-center"><AiOutlineYoutube /></p></Link>}
+              { instagram && <Link href={`${instagram}`} target="_blank" rel="noopener noreferrer"><p className="text-xl md:text-3xl text-stone-3 flex items-center"><FaInstagram /></p></Link>}
+              { facebook && <Link href={`${facebook}`} target="_blank" rel="noopener noreferrer"><p className="text-xl md:text-3xl text-stone-3 flex items-center"><AiOutlineFacebook /></p></Link>}
+              { tiktok && <Link href={`${tiktok}`} target="_blank" rel="noopener noreferrer"><p className="text-xl md:text-3xl text-stone-3 flex items-center"><TbBrandTiktok /></p></Link>}
           </div>
-          <p className="text-xs text-stone-4 flex items-center gap-2">&#169; tots el drets reservats {new Date().getFullYear()} </p>
+          <p className="text-2xs sm:text-xs text-stone-4 flex items-center gap-2">&#169; tots el drets reservats {new Date().getFullYear()} </p>
     </div>
   )
 }

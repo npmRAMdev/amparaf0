@@ -8,9 +8,11 @@ export const getAllPublicacionsAction = async () => {
   const maxPostsRequest = Number(process.env.MAX_POSTS_REQUEST)
 
   const { data, error } = await supabase
-    .from('posts')
+    .from('publicacions')
     .select('*')
     .order('createdAt', { ascending: false })
+
+    //console.log('-- getAllPublicacionsAction --', data);
 
   if (error) {
     return {
